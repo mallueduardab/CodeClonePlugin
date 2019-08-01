@@ -17,7 +17,7 @@ public class ListOfGraphs {
 		this.code = codeFragments;
 		createMethod();
 		createGraph();
-		print();
+//		print();
 	}
 
 	private void print() {
@@ -55,20 +55,24 @@ public class ListOfGraphs {
 				if(!metodos.get(k).getMethodsInvo().isEmpty()) { // afunda
 					graphs.add(new GraphStructure(nivel, 
 							metodos.get(k).getMethodName(),
-							metodos.get(k).getMethodsInvo()));
+							metodos.get(k).getMethodsInvo(),
+							metodos.get(k).getParameters(), 
+							metodos.get(k).getMethodBody()));
 					//aparentemente isso está errado
 					nivel++;
 				}
 			}
 		}
 	}
-
+	
 	private void createGraph() { //cria lista de grafos 
 		for(int i = 0; i < metodos.size();i++) {
 			nivel = 0;
 			graphs.add(new GraphStructure(nivel, 
 					metodos.get(i).getMethodName(),
-					metodos.get(i).getMethodsInvo()));
+					metodos.get(i).getMethodsInvo(),
+					metodos.get(i).getParameters(), 
+					metodos.get(i).getMethodBody()));
 			nivel++;
 			if(!metodos.get(i).getMethodsInvo().isEmpty()) { //se ele chama outros métodos
 				for(int j = 0; j < metodos.get(i).getMethodsInvo().size();j++) { // percorre essa lista de métodos procurando a

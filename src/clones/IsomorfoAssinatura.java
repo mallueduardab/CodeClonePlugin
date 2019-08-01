@@ -1,11 +1,11 @@
 package clones;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map.Entry;
 
 import plugin.persistences.Dependency;
 import plugin.persistences.GraphStructure;
 import plugin.persistences.MethodData;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class IsomorfoAssinatura {
 
@@ -31,12 +31,11 @@ public class IsomorfoAssinatura {
 			if (!graphs.get(i).getSubnivel().isEmpty()) {
 				if (!graphs.get(i + 1).getSubnivel().isEmpty()) {
 //					System.out.println("metodos com subnivel: " + graphs.get(i).getNome() + "  " + graphs.get(i + 1).getNome());
-					if (procuraAssinatura(graphs.get(i), graphs.get(i + 1))) {
+					if (procuraAssinatura(graphs.get(i), graphs.get(i + 1))) {	
+							//zerar(graphs.get(i));
+							//zerar(graphs.get(i+1));
 							
-							zerar(graphs.get(i));
-							zerar(graphs.get(i+1));
-							
-						new IsomorfoAssinatura(graphs.get(i).getNome(), graphs.get(i+1).getNome());
+					//	new IsomorfoAssinatura(graphs.get(i).getNome(), graphs.get(i+1).getNome());
 						
 					}
 				}
@@ -44,7 +43,7 @@ public class IsomorfoAssinatura {
 		}
 	}
 
-	private void procuraAssinatura(GraphStructure estruturaGrafo, GraphStructure estruturaGrafo2) {
+	private boolean procuraAssinatura(GraphStructure estruturaGrafo, GraphStructure estruturaGrafo2) {
 		if ((estruturaGrafo.getFlag().equals(false)) && (estruturaGrafo2.getFlag().equals(false))
 				&& ((estruturaGrafo != null) && (estruturaGrafo2 != null))) {
 			if ((!estruturaGrafo.getSubnivel().isEmpty()) && (!estruturaGrafo2.getSubnivel().isEmpty())) {

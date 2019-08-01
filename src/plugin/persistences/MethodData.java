@@ -1,8 +1,9 @@
 package plugin.persistences;
 
-import java.util.ArrayList;
-
 import org.eclipse.jdt.core.dom.MethodDeclaration;
+
+import java.util.ArrayList;
+import java.util.UUID;
 
 public class MethodData {
 
@@ -12,6 +13,7 @@ public class MethodData {
 	private ArrayList<String> methodsInvo = new ArrayList<String>();
 	private String retorno;
 	private int modificador;
+	private String id;
 
 	public MethodData(ArrayList<String> parameters, String methodName, MethodDeclaration methodBody,
 			ArrayList<String> methodsInvo, String retorno, int modificador) {
@@ -21,6 +23,7 @@ public class MethodData {
 		this.methodsInvo = methodsInvo;
 		this.retorno = retorno;
 		this.modificador = modificador;
+		this.id = UUID.randomUUID().toString();
 	}
 
 
@@ -55,6 +58,11 @@ public class MethodData {
 
 	public int getModificador() {
 		return modificador;
+	}
+
+
+	public String getId() {
+		return id;
 	}
 
 }

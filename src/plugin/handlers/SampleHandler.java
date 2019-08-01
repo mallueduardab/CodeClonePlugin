@@ -1,6 +1,6 @@
 package plugin.handlers;
-import java.util.ArrayList;
 
+import clones.IsomorfoEstrutural;
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -12,13 +12,13 @@ import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jdt.core.*;
 import org.eclipse.jdt.internal.core.JavaProject;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
-
-import clones.IsomorfoEstrutural;
 import plugin.ast.DependencyVisitor;
 import plugin.persistences.Dependency;
 import plugin.persistences.ListOfGraphs;
@@ -27,9 +27,7 @@ import plugin.sst.CodeFragments;
 import plugin.sst.CodeStructure;
 import plugin.sst.XMLGenerator;
 
-import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.jface.viewers.TreeSelection;
-
+import java.util.ArrayList;
 
 @SuppressWarnings("restriction")
 public class SampleHandler extends AbstractHandler {

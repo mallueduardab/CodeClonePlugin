@@ -1,5 +1,7 @@
 package plugin.persistences;
 
+import org.eclipse.jdt.core.dom.MethodDeclaration;
+
 import java.util.ArrayList;
 
 public class GraphStructure {
@@ -8,12 +10,16 @@ public class GraphStructure {
 	String nome;
 	ArrayList<String> subnivel;
 	Boolean flag;
+	ArrayList<String> parameters;
+	private MethodDeclaration methodBody;
 	
-	public GraphStructure(int nivel, String nome, ArrayList<String> subnivel) {
+	public GraphStructure(int nivel, String nome, ArrayList<String> subnivel, ArrayList<String> parametros, MethodDeclaration methodBody) {
 		this.nivel = nivel;
 		this.nome = nome;
 		this.subnivel = subnivel;
 		this.flag = false;
+		this.parameters = parametros;
+		this.methodBody = methodBody;
 	}
 	
 	public Boolean getFlag() {
@@ -41,5 +47,11 @@ public class GraphStructure {
 		this.subnivel = subnivel;
 	}
 
-	
+	public ArrayList<String> getParametros() {
+		return parameters;
+	}
+
+	public MethodDeclaration getMethodBody() {
+		return methodBody;
+	}
 }
